@@ -1,3 +1,26 @@
+#Rebecca's stuff
+*
+**/*
+!code/
+!code/**/*
+!code/*
+!.gitignore
+!README.md
+
+._*
+**/._*
+
+.DS_Store*
+**/.DS_Store*
+
+*.pyc
+**/*.pyc
+
+!cpu_requirements.txt
+!gpu_requirements.txt
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

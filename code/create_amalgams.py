@@ -14,12 +14,19 @@ import sys
 nlp = spacy.load("en_core_web_lg", disable=["ner"])
 from itertools import islice, chain
 import pickle as pkl
-## TODO: CTRL-F 'return -1' 'break'
-## TODO: Line 111, remove debugging include all files
 
-'''usage: (goes in shell script create_amalgam_and_partitions.sh)
+'''usage: (goes in shell script create_amalgams.sh)
 python3 -u code/create_amalgams.py \
--outDir 'AWS_code/1out/' \
+-outDir 'betatest/out/' \
+
+Expected output files:
+
+        - sentences.db
+        - trace.db
+        - spacy_toks.db
+        - spacy_pos.db
+        - spacy_deps.db
+        - job_slices.pkl  //list of tuples (start_index, end_index) for each partition
 '''
 ## global argparser
 parser = argparse.ArgumentParser(description='Processing list of files...')
@@ -108,16 +115,16 @@ def read_files():
     fnames = sorted([join(args.dataDir,subdir,fname) for subdir in listdir(args.dataDir) for fname in listdir(args.dataDir+subdir)]) 
     fnames_len = len(fnames)
     print('\nnfiles: ', fnames_len)
-    # print('\nfiles: ', fnames)
+    print('\nfiles: ', fnames)
 
     print('\n')
     for idx, fname in enumerate(fnames):
         print('\nround {} processing {}... percentage processed {}'.format(idx, fname[-17:], (idx/fnames_len)*100))
         add_file(fname)
 
-    # print('\n--totals check in read_files()--')
-    # print('len(sentences): {} len(trace): {}'.format(len(sentences), len(trace)))
-    # print('len(spacy_toks): {}, len(spacy_pos): {}, len(spacy_deps): {}'.format(len(spacy_toks), len(spacy_pos), len(spacy_deps)))
+    print('\n--totals check in read_files()--')
+    print('len(sentences): {} len(trace): {}'.format(len(sentences), len(trace)))
+    print('len(spacy_toks): {}, len(spacy_pos): {}, len(spacy_deps): {}'.format(len(spacy_toks), len(spacy_pos), len(spacy_deps)))
 
 
 def progress_in_batches(name, iterator, total_length, increment):
@@ -170,12 +177,12 @@ def create_sqlite_dicts():
     creating_time = time.time() - start
     print('Time elapsed creating all sqlite dicts: {}'.format(time.strftime("%H:%M:%S", time.gmtime(creating_time))))
 
-    # start = time.time()
-    # print('\n---dict_stats---')
-    # print('len(sentences_dict): {} len(reverse_sentences_dict): {} len(trace_dict): {}'.format(len(sentences_dict), len(reverse_sentences_dict), len(trace_dict)))
-    # print('len(spacy_toks_dict): {} len(spacy_pos_dict): {} len(spacy_deps_dict): {}'.format(len(spacy_toks_dict), len(spacy_pos_dict), len(spacy_deps_dict)))
-    # printing_time = time.time() - start
-    # print('Time elapsed printing sqlite dicts: {}'.format(time.strftime("%H:%M:%S", time.gmtime(printing_time))))
+    start = time.time()
+    print('\n---dict_stats---')
+    print('len(sentences_dict): {} len(reverse_sentences_dict): {} len(trace_dict): {}'.format(len(sentences_dict), len(reverse_sentences_dict), len(trace_dict)))
+    print('len(spacy_toks_dict): {} len(spacy_pos_dict): {} len(spacy_deps_dict): {}'.format(len(spacy_toks_dict), len(spacy_pos_dict), len(spacy_deps_dict)))
+    printing_time = time.time() - start
+    print('Time elapsed printing sqlite dicts: {}'.format(time.strftime("%H:%M:%S", time.gmtime(printing_time))))
 
     ## commit dicts
     sentences_dict.commit()

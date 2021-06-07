@@ -2,10 +2,10 @@ source ~/annoy_cpu/bin/activate
 #!/bin/zsh
 #$ -cwd
 #$ -l h=nlpgrid10
-#$ -l h_vmem=400G
-#$ -N bigawsjob
-python3 -u AWS_code/create_amalgams.py \
--outDir 'AWS_code/bigjob/iterative_create_amalgams_rev2/' \
--dataDir '/nlp/data/corpora/LDC/LDC2011T07/data/' \
--NUM_JOBS 960 \
-> AWS_code/bigjob/iterative_create_amalgams_rev2/create_amalgams.stdout 2>&1
+#$ -l h_vmem=50G
+#$ -N TopGuNN
+python3 -u code/create_amalgams.py \
+-outDir 'betatest/out/' \
+-dataDir 'betatest/data/' \
+-NUM_JOBS 3 \
+> betatest/out/create_amalgams.stdout 2>&1
