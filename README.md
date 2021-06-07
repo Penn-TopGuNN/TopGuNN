@@ -19,15 +19,13 @@ Running the distributed job over AWS is divided into 4 parts:
 
 `1) pre-processing on the CPU` 
 
-`2) Hot-pack distributed job on the GPU (embedding and filtering), this includes doing embedding and filtering for the query matrix`
+`2) "Hot-pack" parallelized jobs on the GPU (generate BERT word embeddings and filtering for content words only).  This includes the embedding and filtering for the query matrix also!`
 
 `3) post-processing on the CPU`
 
 `4) Running queries on the CPU`
 
 ## Files to transfer over to AWS from nlpgrid
-
-	All preprocessing is in the `forreal/` folder
 
 	- sentences.db
 	- trace.db
@@ -42,8 +40,8 @@ Running the distributed job over AWS is divided into 4 parts:
 ## Order of script execution
 ### Pre-processing on the CPU (run on NLPGrid)
 
-	TODO: update the shell scripts below with you virtenv and your outDir
-	TODO: review global argparser vars in .py files to help you understand the command line arguments in your shell script
+	TODO for each indv'l user: update your shell scripts below with you virtenv and your outDir
+	TODO for each indv'l user: review global argparser vars in .py files to help you understand the command line arguments in your shell script
 	NOTE: .db==sqlite_dict		.dat==npy_memmap		.pkl==pickle_file
 
 	1.	create_amalgams.py / create_amalgams.sh
@@ -90,7 +88,7 @@ Running the distributed job over AWS is divided into 4 parts:
 
 		-shapes.txt    //memmap shapes of each of the jobs needed to load in annoy index later
 
-### Post-processing on the CPU (4a. and 4b. run simultaneously)
+### Post-processing on the CPU (4a. and 4b. you can and should run simultaneously)
 
 	4a.	create_word_index.py / create_word_index.sh
 
@@ -103,7 +101,7 @@ Running the distributed job over AWS is divided into 4 parts:
 
 	4b.	create_annoy_index.py, create_annoy_index.sh  / create_faiss_index.py, create_faiss_index.sh
 
-		annoy index and faiss index are created using separate files.  They must have their own separate virtenvs.
+		annoy index and faiss index are created using separate files (depending on whether you use FAISS or ANNOY).  They must have their own separate virtenvs.
 
 		Expected output files:
 
@@ -117,7 +115,7 @@ Running the distributed job over AWS is divided into 4 parts:
 
 	4.	word_sim_search.py / word_sim_search.sh
 
-		running queries.  Using the query matrix that was generated in embed_and_filter.py, each content word is queried for and searched in the annoy or faiss index (whichever one was created)
+		Running your queries!  Using the query matrix that was generated in embed_and_filter.py, each content word is queried for and searched in the annoy or faiss index (whichever one was created)
 
 		Expected output files
 
