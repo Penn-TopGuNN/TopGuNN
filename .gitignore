@@ -10,8 +10,12 @@
 ._*
 **/._*
 
+._.DS_Store
+._.DS_Store*
 .DS_Store*
 **/.DS_Store*
+**/._.DS_Store
+**/._.DS_Store*
 
 *.pyc
 **/*.pyc

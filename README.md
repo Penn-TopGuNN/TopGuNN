@@ -44,20 +44,39 @@ Running the parallelized job over AWS is divided into 4 parts:
 	TODO for each indv'l user: review global argparser vars in .py files to help you understand the command line arguments in your shell script
 	NOTE: .db==sqlite_dict		.dat==npy_memmap		.pkl==pickle_file
 
-	1.	create_amalgams.py / create_amalgams.sh
+	1.	create_amalgams_job_array.py / create_amalgams_job_array.sh (which runs create_amalgams.py on each month of Gigaword in a job array simultaneously)
 
-		creates an amalgamation of each file for sentences, trace information, and spacy annotations.
+		sentence splits and generate SpaCy annotations for each month of Gigaword.
+		each month of Gigaword will have it's own index of sentences, trace information, and spacy annotations.
 
 		Expected output files:
 
-			- sentences.db
-			- trace.db
-			- spacy_toks.db
-			- spacy_pos.db
-			- spacy_deps.db
-			- job_slices.pkl  //list of tuples (start_index, end_index) for each partition
+			(for our case, we ran 960 jobs in parallel)
+			- sentences_job#_filename.pkl (total 960)
+			- trace_job#_filename.pkl (total 960)
+			- spacy_toks_job#_filename.pkl (total 960)
+			- spacy_pos_job#_filename.pkl (total 960)
+			- spacy_deps_job#_filename.pkl (total 960)
+			- create_amalgams.stdout (only 1)
+			- create_amalgams_job_array_job#.stdout (1 stdout per job, we had 960 jobs, so we had 960 stdouts)
+			NOTE: You do not have to print out stdouts for your jobs, we have it inserted as default in our shell scripts.  Just remove if you do not like them or need them.
 
-	2. create_sqlite_indexes.py / create_sqlite_indexes.sh
+	2. combine_almalgams_create_sqlitedicts.py / combine_almalgams_create_sqlitedicts.sh
+
+		Combines all the amalgamations
+
+		Expected output files:
+
+			(for our case, the 960 files for each are combined into 1 for each)
+			- sentences.db (960 jobs into 1 sentence index)
+			- trace.db (960 jobs into 1 trace information index)
+			- spacy_toks.db (960 jobs into 1 spacy toks index)
+			- spacy_pos.db (960 jobs into 1 spacy pos index)
+			- spacy_deps.db (960 jobs into 1 spacy deps index)
+			- job_slices.pkl  //list of tuples (start_index, end_index) for each partition
+			- combine_amalgams_create_sqlitedicts.stdout 
+
+	3. create_sqlite_indexes.py / create_sqlite_indexes.sh
 
 	   creates indexes to precompute the range of the partition of the amalgamated sqlite dictionary being processed for a particular job in embed_and_filter.py in the next script.
 
@@ -67,7 +86,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 ### Parallelized job on the GPU (embedding and filtering for annoy index, and creating the query matrix)
 
-	3.	embed_and_filter.py / embed_and_filter.sh
+	4.	embed_and_filter.py / embed_and_filter.sh
 
 		embeddings for both the query matrix and the database matrix are generated on AWS.
 		additionally, files of the filtered words extracted in each of the jobs are outputted to files.
@@ -88,9 +107,9 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 		-shapes.txt    //memmap shapes of each of the jobs needed to load in annoy index later
 
-### Post-processing on the CPU (4a. and 4b. you can and should run simultaneously)
+### Post-processing on the CPU (5a. and 5b. you can and should run simultaneously)
 
-	4a.	create_word_index.py / create_word_index.sh
+	5a.	create_word_index.py / create_word_index.sh
 
 		creates an amalgamated word_index and from each of the jobs that were ran in embed_and_filter.py
 		after the file is done, you should have one amalgamated word_index
@@ -99,7 +118,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 		- words.db
 
-	4b.	create_annoy_index.py, create_annoy_index.sh  / create_faiss_index.py, create_faiss_index.sh
+	5b.	create_annoy_index.py, create_annoy_index.sh  / create_faiss_index.py, create_faiss_index.sh
 
 		annoy index and faiss index are created using separate files (depending on whether you use FAISS or ANNOY).  They must have their own separate virtenvs.
 
@@ -113,7 +132,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 ## Running queries on the CPU
 
-	4.	word_sim_search.py / word_sim_search.sh
+	6.	word_sim_search.py / word_sim_search.sh
 
 		Running your queries!  Using the query matrix that was generated in embed_and_filter.py, each content word is queried for and searched in the annoy or faiss index (whichever one was created)
 
