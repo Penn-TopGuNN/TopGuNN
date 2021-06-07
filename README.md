@@ -15,7 +15,7 @@ Our package, Top GuNN Similarity Search, provides python-based software to autom
 
 ### Running The Program
 
-Running the distributed job over AWS is divided into 4 parts:
+Running the parallelized job over AWS is divided into 4 parts:
 
 `1) pre-processing on the CPU` 
 
