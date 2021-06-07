@@ -25,7 +25,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 `4) Running queries on the CPU`
 
-## Files to transfer over to AWS from your server (after you complete Step 1) Preprocessing)
+## Files to transfer over to AWS from the pre-processing on the CPU
 
 	- sentences.db
 	- trace.db
@@ -38,7 +38,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 
 ## Order of script execution
-### Pre-processing on the CPU (run on NLPGrid)
+### Pre-processing on the CPU 
 
 	TODO for each indv'l user: update your shell scripts below with you virtenv and your outDir
 	TODO for each indv'l user: review global argparser vars in .py files to help you understand the command line arguments in your shell script
@@ -65,7 +65,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 	   		- None.  This is modifying the current amalgamated sqlite dictionaries, so that job paritions are uploaded faster and embed_and_filtering can process more rapidly for each job.
 
 
-### Parallelized job on the GPU (includes: embedding and filtering for annoy index, and creating the query matrix)
+### Parallelized job on the GPU (embedding and filtering for annoy index, and creating the query matrix)
 
 	3.	embed_and_filter.py / embed_and_filter.sh
 
@@ -127,6 +127,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 
 # Installing Dependencies...
+We have provided a cpu_requirements.txt and gpu_requirements.txt in the source folder for quick install of those dependencies
 
 ## Depedencies Quick Install (Installing via cpu_requirements.txt)
 
@@ -153,7 +154,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 ## Depedencies Manual Install
 
-### create and activate your virtual environment - you will need two for CPU processes (cpu_annoy, cpu_faiss) and two for GPU processes (gpu_annoy, gpu_faiss) depending on which indexing system you use.  Total of 4 virtenvs.
+### create and activate your virtual environment - you will need two for CPU processes (cpu_annoy, cpu_faiss) and two for GPU processes (gpu_annoy, gpu_faiss) if you want to use/compare results with both indexing systems.  Total of 4 virtenvs.  Otherwise, you will only need 3 virtenvs.
 
 create: `$ python3 -m venv ~/virtenv_name/`
 
