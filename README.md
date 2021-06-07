@@ -33,8 +33,8 @@ Running the parallelized job over AWS is divided into 4 parts:
 	- spacy_pos.db
 	- spacy_deps.db
 	- job_slices.pkl  //list of tuples (start_index, end_index) for each partition
-	- cpu_requirements.txt (in AWS_code/)
-	- gpu_requirements.txt (in AWS_code/)
+	- cpu_requirements.txt (in code/)
+	- gpu_requirements.txt (in code/)
 
 
 ## Order of script execution
@@ -57,7 +57,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 			- spacy_deps.db
 			- job_slices.pkl  //list of tuples (start_index, end_index) for each partition
 
-	2. create_sqlite_indexes.py / create_sqlite_index.sh
+	2. create_sqlite_indexes.py / create_sqlite_indexes.sh
 
 	   creates indexes to precompute the range of the partition of the amalgamated sqlite dictionary being processed for a particular job in embed_and_filter.py in the next script.
 
