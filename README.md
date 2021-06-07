@@ -25,7 +25,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 `4) Running queries on the CPU`
 
-## Files to transfer over to AWS from nlpgrid
+## Files to transfer over to AWS from your server (after you complete Step 1) Preprocessing)
 
 	- sentences.db
 	- trace.db
@@ -65,7 +65,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 	   		- None.  This is modifying the current amalgamated sqlite dictionaries, so that job paritions are uploaded faster and embed_and_filtering can process more rapidly for each job.
 
 
-### Distributed job on the GPU (includes: embedding and filtering for annoy index, and creating the query matrix)
+### Parallelized job on the GPU (includes: embedding and filtering for annoy index, and creating the query matrix)
 
 	3.	embed_and_filter.py / embed_and_filter.sh
 
@@ -105,7 +105,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 		Expected output files:
 
-		annoy_index.ann    //52.32GB @ 5 months, 200 trees
+		annoy_index.ann    //ex. 52.32GB @ 5 months, 200 trees for subset of the Gigaword Corpus
 
 # Now the Top GuNN part! Fast KNN-retrieval!
 
