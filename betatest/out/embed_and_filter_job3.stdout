@@ -1,0 +1,300 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+
+len(job_slices): 3
+---argparser---:
+outDir 	 betatest/out/ 	 <class 'str'>
+dataDir 	 betatest/data/ 	 <class 'str'>
+job_id 	 3 	 <class 'str'>
+batch_size 	 175 	 <class 'str'>
+clip_len 	 225 	 <class 'str'>
+gpu_id 	 1 	 <class 'str'>
+job_slices 	 job_slices.pkl 	 <class 'str'>
+query_sentences 	 betatest/data/query_sentences.txt 	 <class 'str'>
+sentences_dict 	 sentences.db 	 <class 'str'>
+trace_dict 	 trace.db 	 <class 'str'>
+spacy_toks_dict 	 spacy_toks.db 	 <class 'str'>
+spacy_pos_dict 	 spacy_pos.db 	 <class 'str'>
+spacy_deps_dict 	 spacy_deps.db 	 <class 'str'>
+SBERT_flag 	 False 	 <class 'str'>
+HEAD_flag 	 False 	 <class 'str'>
+loading regular BERT
+
+job 3 - start index: 426916  end index: 640369 len(cur_partition): 213453
+total elapsed time retrieving the current partition: 00:00:09
+
+len(cur_sent_data): 213454, len(cur_trace_data): 213454
+len(cur_spacy_toks): 213454 len(cur_spacy_pos): 213454 len(cur_spacy_deps): 213454
+did you make it here?
+
+processing files for job 3...
+handling batches for job 3...
+size of batch:  175
+len(sentences), len(trace), len(cur_spacy_toks), len(cur_spacy_pos), len(cur_spacy_deps):  213454 213454 213454 213454 213454
+DataLoader (batch_size 175): 1220 1220 1220 1220 1220
+
+processing embedding 0... percentage processed 0.0
+finished batch 0. len(words): 1405 len(embeds): 1405
+
+
+clipping sentences round 19 
+before padded_tinput_ids.size:  torch.Size([175, 296])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 72 
+before padded_tinput_ids.size:  torch.Size([175, 361])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 100... percentage processed 8.19672131147541
+finished batch 100. len(words): 1590 len(embeds): 1590
+
+
+clipping sentences round 140 
+before padded_tinput_ids.size:  torch.Size([175, 258])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 200... percentage processed 16.39344262295082
+finished batch 200. len(words): 1666 len(embeds): 1666
+
+
+clipping sentences round 256 
+before padded_tinput_ids.size:  torch.Size([175, 335])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 300... percentage processed 24.59016393442623
+finished batch 300. len(words): 1596 len(embeds): 1596
+
+
+clipping sentences round 338 
+before padded_tinput_ids.size:  torch.Size([175, 385])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 342 
+before padded_tinput_ids.size:  torch.Size([175, 238])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 400... percentage processed 32.78688524590164
+finished batch 400. len(words): 1928 len(embeds): 1928
+
+
+clipping sentences round 414 
+before padded_tinput_ids.size:  torch.Size([175, 276])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 493 
+before padded_tinput_ids.size:  torch.Size([175, 323])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 500... percentage processed 40.98360655737705
+finished batch 500. len(words): 1948 len(embeds): 1948
+
+
+clipping sentences round 581 
+before padded_tinput_ids.size:  torch.Size([175, 230])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 600... percentage processed 49.18032786885246
+finished batch 600. len(words): 1738 len(embeds): 1738
+
+
+clipping sentences round 658 
+before padded_tinput_ids.size:  torch.Size([175, 393])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 700... percentage processed 57.377049180327866
+finished batch 700. len(words): 1960 len(embeds): 1960
+
+
+clipping sentences round 727 
+before padded_tinput_ids.size:  torch.Size([175, 382])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 748 
+before padded_tinput_ids.size:  torch.Size([175, 488])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 763 
+before padded_tinput_ids.size:  torch.Size([175, 228])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 800... percentage processed 65.57377049180327
+finished batch 800. len(words): 1569 len(embeds): 1569
+
+processing embedding 900... percentage processed 73.77049180327869
+finished batch 900. len(words): 1573 len(embeds): 1573
+
+
+clipping sentences round 920 
+before padded_tinput_ids.size:  torch.Size([175, 341])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 1000... percentage processed 81.9672131147541
+finished batch 1000. len(words): 1847 len(embeds): 1847
+
+
+clipping sentences round 1048 
+before padded_tinput_ids.size:  torch.Size([175, 236])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 1100... percentage processed 90.1639344262295
+finished batch 1100. len(words): 1871 len(embeds): 1871
+
+
+clipping sentences round 1111 
+before padded_tinput_ids.size:  torch.Size([175, 486])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 1119 
+before padded_tinput_ids.size:  torch.Size([175, 302])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 1174 
+before padded_tinput_ids.size:  torch.Size([175, 323])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 1197 
+before padded_tinput_ids.size:  torch.Size([175, 299])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 1200... percentage processed 98.36065573770492
+finished batch 1200. len(words): 2020 len(embeds): 2020
+these lengths should match:  len(words): 2000670, len(word_embeds): 2000670, total_nword_embeds_check: 2000670 
+
+---stats---:
+total time embeddings docs: 00:21:05
+total time filtering content words: 00:01:42
+total time creating word_sqlite_dict: 00:02:10
+total elapsed copying word_embeds to memmap: 00:04:13
+time handling batches: 00:29:21
+finished job 3
+total time inside main: 00:29:35

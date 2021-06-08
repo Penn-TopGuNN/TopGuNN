@@ -1,0 +1,211 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+
+len(job_slices): 3
+---argparser---:
+outDir 	 betatest/out/ 	 <class 'str'>
+dataDir 	 betatest/data/ 	 <class 'str'>
+job_id 	 1 	 <class 'str'>
+batch_size 	 175 	 <class 'str'>
+clip_len 	 225 	 <class 'str'>
+gpu_id 	 2 	 <class 'str'>
+job_slices 	 job_slices.pkl 	 <class 'str'>
+query_sentences 	 betatest/data/query_sentences.txt 	 <class 'str'>
+sentences_dict 	 sentences.db 	 <class 'str'>
+trace_dict 	 trace.db 	 <class 'str'>
+spacy_toks_dict 	 spacy_toks.db 	 <class 'str'>
+spacy_pos_dict 	 spacy_pos.db 	 <class 'str'>
+spacy_deps_dict 	 spacy_deps.db 	 <class 'str'>
+SBERT_flag 	 False 	 <class 'str'>
+HEAD_flag 	 False 	 <class 'str'>
+loading regular BERT
+
+Only processing query matrix during job 1: 
+creating query matrix...
+batch_size for query_matrix:  175
+len(q_sentences) and len(q_trace):  14 14
+DataLoader (batch_size 175): 1 1 1 1 1
+finished batch 0. len(words): 139 len(embeds): 139
+xq.shape:  139 768
+finished processing query matrix...
+
+job 1 - start index: 0  end index: 213457 len(cur_partition): 213457
+total elapsed time retrieving the current partition: 00:00:09
+
+len(cur_sent_data): 213458, len(cur_trace_data): 213458
+len(cur_spacy_toks): 213458 len(cur_spacy_pos): 213458 len(cur_spacy_deps): 213458
+did you make it here?
+
+processing files for job 1...
+handling batches for job 1...
+size of batch:  175
+len(sentences), len(trace), len(cur_spacy_toks), len(cur_spacy_pos), len(cur_spacy_deps):  213458 213458 213458 213458 213458
+DataLoader (batch_size 175): 1220 1220 1220 1220 1220
+
+processing embedding 0... percentage processed 0.0
+finished batch 0. len(words): 1491 len(embeds): 1491
+
+processing embedding 100... percentage processed 8.19672131147541
+finished batch 100. len(words): 2111 len(embeds): 2111
+
+processing embedding 200... percentage processed 16.39344262295082
+finished batch 200. len(words): 1155 len(embeds): 1155
+
+
+clipping sentences round 226 
+before padded_tinput_ids.size:  torch.Size([175, 330])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 300... percentage processed 24.59016393442623
+finished batch 300. len(words): 1368 len(embeds): 1368
+
+processing embedding 400... percentage processed 32.78688524590164
+finished batch 400. len(words): 1791 len(embeds): 1791
+
+
+clipping sentences round 466 
+before padded_tinput_ids.size:  torch.Size([175, 226])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 500... percentage processed 40.98360655737705
+finished batch 500. len(words): 1513 len(embeds): 1513
+
+processing embedding 600... percentage processed 49.18032786885246
+finished batch 600. len(words): 1831 len(embeds): 1831
+
+
+clipping sentences round 634 
+before padded_tinput_ids.size:  torch.Size([175, 307])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 700... percentage processed 57.377049180327866
+finished batch 700. len(words): 1526 len(embeds): 1526
+Token indices sequence length is longer than the specified maximum sequence length for this model (1316 > 512). Running this sequence through the model will result in indexing errors
+
+
+clipping sentences round 737 
+before padded_tinput_ids.size:  torch.Size([175, 1318])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 748 
+before padded_tinput_ids.size:  torch.Size([175, 300])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 800... percentage processed 65.57377049180327
+finished batch 800. len(words): 1590 len(embeds): 1590
+
+
+clipping sentences round 858 
+before padded_tinput_ids.size:  torch.Size([175, 276])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 900... percentage processed 73.77049180327869
+finished batch 900. len(words): 1981 len(embeds): 1981
+
+
+clipping sentences round 981 
+before padded_tinput_ids.size:  torch.Size([175, 378])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+
+clipping sentences round 990 
+before padded_tinput_ids.size:  torch.Size([175, 299])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 1000... percentage processed 81.9672131147541
+finished batch 1000. len(words): 1332 len(embeds): 1332
+
+
+clipping sentences round 1051 
+before padded_tinput_ids.size:  torch.Size([175, 227])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+
+processing embedding 1100... percentage processed 90.1639344262295
+finished batch 1100. len(words): 1624 len(embeds): 1624
+
+processing embedding 1200... percentage processed 98.36065573770492
+finished batch 1200. len(words): 1888 len(embeds): 1888
+
+
+clipping sentences round 1217 
+before padded_tinput_ids.size:  torch.Size([175, 330])
+Truncation was not explicitely activated but `max_length` is provided a specific value, please use `truncation=True` to explicitely truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+padded_input_ids.dtype, attention_masks.dtype:  int64 int64
+after padded_tinput_ids.size:  torch.Size([175, 225])
+---end clipped sentences---
+
+
+
+these lengths should match:  len(words): 1950874, len(word_embeds): 1950874, total_nword_embeds_check: 1950874 
+
+---stats---:
+total time embeddings docs: 00:20:17
+total time filtering content words: 00:01:43
+total time creating word_sqlite_dict: 00:01:52
+total elapsed copying word_embeds to memmap: 00:03:19
+time handling batches: 00:27:19
+finished job 1
+total time inside main: 00:27:33

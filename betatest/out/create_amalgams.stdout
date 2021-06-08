@@ -1,0 +1,23 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+---argparser---:
+outDir betatest/out/
+dataDir betatest/data/
+NUM_JOBS 3
+clip_len 225
+
+nfiles:  3
+
+files:  ['betatest/data/nyt1/nyt_eng_201010.gz', 'betatest/data/nyt2/nyt_eng_201011.gz', 'betatest/data/nyt3/nyt_eng_201012.gz']
+
+
+
+round 0 processing nyt_eng_201010.gz... percentage processed 0.0

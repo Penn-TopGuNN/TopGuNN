@@ -1,0 +1,12 @@
+Creating SQLite Index on ... betatest/out/sentences.db
+total time inside create_sqlite_index: 00:00:01
+Creating SQLite Index on ... betatest/out/trace.db
+total time inside create_sqlite_index: 00:00:01
+Creating SQLite Index on ... betatest/out/spacy_toks.db
+total time inside create_sqlite_index: 00:00:01
+Creating SQLite Index on ... betatest/out/spacy_pos.db
+total time inside create_sqlite_index: 00:00:01
+Creating SQLite Index on ... betatest/out/spacy_deps.db
+total time inside create_sqlite_index: 00:00:01
+Done creating all SQLite indexes.
+total time inside main: 00:00:07

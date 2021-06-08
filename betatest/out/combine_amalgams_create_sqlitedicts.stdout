@@ -1,0 +1,714 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+---argparser---:
+outDir betatest/out/
+dataDir betatest/data/
+NUM_JOBS 3
+clip_len 225
+
+lengths of filenames should match: 
+
+sent_fnames 3, 
+trace_fnames 3, 
+spacy_toks_fnames 3, 
+spacy_pos_fnames 3, 
+spacy_deps_fnames3
+
+
+
+round 0 - adding file nyt_eng_201010... percentage processed 0.0
+Current set of files being processed: 
+betatest/out/sentences_job1_nyt_eng_201010.pkl, 
+betatest/out/trace_job1_nyt_eng_201010.pkl, 
+betatest/out/spacy_toks_job1_nyt_eng_201010.pkl, 
+betatest/out/spacy_pos_job1_nyt_eng_201010.pkl , 
+betatest/out/spacy_deps_job1_nyt_eng_201010.pkl
+month added.. nyt_eng_201010
+Time elapsed adding month to amalgamation: 00:00:00
+
+round 1 - adding file nyt_eng_201011... percentage processed 33.33333333333333
+Current set of files being processed: 
+betatest/out/sentences_job2_nyt_eng_201011.pkl, 
+betatest/out/trace_job2_nyt_eng_201011.pkl, 
+betatest/out/spacy_toks_job2_nyt_eng_201011.pkl, 
+betatest/out/spacy_pos_job2_nyt_eng_201011.pkl , 
+betatest/out/spacy_deps_job2_nyt_eng_201011.pkl
+month added.. nyt_eng_201011
+Time elapsed adding month to amalgamation: 00:00:00
+
+round 2 - adding file nyt_eng_201012... percentage processed 66.66666666666666
+Current set of files being processed: 
+betatest/out/sentences_job3_nyt_eng_201012.pkl, 
+betatest/out/trace_job3_nyt_eng_201012.pkl, 
+betatest/out/spacy_toks_job3_nyt_eng_201012.pkl, 
+betatest/out/spacy_pos_job3_nyt_eng_201012.pkl , 
+betatest/out/spacy_deps_job3_nyt_eng_201012.pkl
+month added.. nyt_eng_201012
+Time elapsed adding month to amalgamation: 00:00:00
+
+creating sqlite dicts..
+
+Creating sentences SQLiteDict... number processed 10000
+
+Creating sentences SQLiteDict... number processed 20000
+
+Creating sentences SQLiteDict... number processed 30000
+
+Creating sentences SQLiteDict... number processed 40000
+
+Creating sentences SQLiteDict... number processed 50000
+
+Creating sentences SQLiteDict... number processed 60000
+
+Creating sentences SQLiteDict... number processed 70000
+
+Creating sentences SQLiteDict... number processed 80000
+
+Creating sentences SQLiteDict... number processed 90000
+
+Creating sentences SQLiteDict... number processed 100000
+
+Creating sentences SQLiteDict... number processed 110000
+
+Creating sentences SQLiteDict... number processed 120000
+
+Creating sentences SQLiteDict... number processed 130000
+
+Creating sentences SQLiteDict... number processed 140000
+
+Creating sentences SQLiteDict... number processed 150000
+
+Creating sentences SQLiteDict... number processed 160000
+
+Creating sentences SQLiteDict... number processed 170000
+
+Creating sentences SQLiteDict... number processed 180000
+
+Creating sentences SQLiteDict... number processed 190000
+
+Creating sentences SQLiteDict... number processed 200000
+
+Creating sentences SQLiteDict... number processed 210000
+
+Creating sentences SQLiteDict... number processed 220000
+
+Creating sentences SQLiteDict... number processed 230000
+
+Creating sentences SQLiteDict... number processed 240000
+
+Creating sentences SQLiteDict... number processed 250000
+
+Creating sentences SQLiteDict... number processed 260000
+
+Creating sentences SQLiteDict... number processed 270000
+
+Creating sentences SQLiteDict... number processed 280000
+
+Creating sentences SQLiteDict... number processed 290000
+
+Creating sentences SQLiteDict... number processed 300000
+
+Creating sentences SQLiteDict... number processed 310000
+
+Creating sentences SQLiteDict... number processed 320000
+
+Creating sentences SQLiteDict... number processed 330000
+
+Creating sentences SQLiteDict... number processed 340000
+
+Creating sentences SQLiteDict... number processed 350000
+
+Creating sentences SQLiteDict... number processed 360000
+
+Creating sentences SQLiteDict... number processed 370000
+
+Creating sentences SQLiteDict... number processed 380000
+
+Creating sentences SQLiteDict... number processed 390000
+
+Creating sentences SQLiteDict... number processed 400000
+
+Creating sentences SQLiteDict... number processed 410000
+
+Creating sentences SQLiteDict... number processed 420000
+
+Creating sentences SQLiteDict... number processed 430000
+
+Creating sentences SQLiteDict... number processed 440000
+
+Creating sentences SQLiteDict... number processed 450000
+
+Creating sentences SQLiteDict... number processed 460000
+
+Creating sentences SQLiteDict... number processed 470000
+
+Creating sentences SQLiteDict... number processed 480000
+
+Creating sentences SQLiteDict... number processed 490000
+
+Creating sentences SQLiteDict... number processed 500000
+
+Creating sentences SQLiteDict... number processed 510000
+
+Creating sentences SQLiteDict... number processed 520000
+
+Creating sentences SQLiteDict... number processed 530000
+
+Creating sentences SQLiteDict... number processed 540000
+
+Creating sentences SQLiteDict... number processed 550000
+
+Creating sentences SQLiteDict... number processed 560000
+
+Creating sentences SQLiteDict... number processed 570000
+
+Creating sentences SQLiteDict... number processed 580000
+
+Creating sentences SQLiteDict... number processed 590000
+
+Creating sentences SQLiteDict... number processed 600000
+
+Creating sentences SQLiteDict... number processed 610000
+
+Creating sentences SQLiteDict... number processed 620000
+
+Creating sentences SQLiteDict... number processed 630000
+
+Creating sentences SQLiteDict... number processed 640000
+
+Creating sentences SQLiteDict... number processed 640370
+
+Creating trace SQLiteDict... number processed 10000
+
+Creating trace SQLiteDict... number processed 20000
+
+Creating trace SQLiteDict... number processed 30000
+
+Creating trace SQLiteDict... number processed 40000
+
+Creating trace SQLiteDict... number processed 50000
+
+Creating trace SQLiteDict... number processed 60000
+
+Creating trace SQLiteDict... number processed 70000
+
+Creating trace SQLiteDict... number processed 80000
+
+Creating trace SQLiteDict... number processed 90000
+
+Creating trace SQLiteDict... number processed 100000
+
+Creating trace SQLiteDict... number processed 110000
+
+Creating trace SQLiteDict... number processed 120000
+
+Creating trace SQLiteDict... number processed 130000
+
+Creating trace SQLiteDict... number processed 140000
+
+Creating trace SQLiteDict... number processed 150000
+
+Creating trace SQLiteDict... number processed 160000
+
+Creating trace SQLiteDict... number processed 170000
+
+Creating trace SQLiteDict... number processed 180000
+
+Creating trace SQLiteDict... number processed 190000
+
+Creating trace SQLiteDict... number processed 200000
+
+Creating trace SQLiteDict... number processed 210000
+
+Creating trace SQLiteDict... number processed 220000
+
+Creating trace SQLiteDict... number processed 230000
+
+Creating trace SQLiteDict... number processed 240000
+
+Creating trace SQLiteDict... number processed 250000
+
+Creating trace SQLiteDict... number processed 260000
+
+Creating trace SQLiteDict... number processed 270000
+
+Creating trace SQLiteDict... number processed 280000
+
+Creating trace SQLiteDict... number processed 290000
+
+Creating trace SQLiteDict... number processed 300000
+
+Creating trace SQLiteDict... number processed 310000
+
+Creating trace SQLiteDict... number processed 320000
+
+Creating trace SQLiteDict... number processed 330000
+
+Creating trace SQLiteDict... number processed 340000
+
+Creating trace SQLiteDict... number processed 350000
+
+Creating trace SQLiteDict... number processed 360000
+
+Creating trace SQLiteDict... number processed 370000
+
+Creating trace SQLiteDict... number processed 380000
+
+Creating trace SQLiteDict... number processed 390000
+
+Creating trace SQLiteDict... number processed 400000
+
+Creating trace SQLiteDict... number processed 410000
+
+Creating trace SQLiteDict... number processed 420000
+
+Creating trace SQLiteDict... number processed 430000
+
+Creating trace SQLiteDict... number processed 440000
+
+Creating trace SQLiteDict... number processed 450000
+
+Creating trace SQLiteDict... number processed 460000
+
+Creating trace SQLiteDict... number processed 470000
+
+Creating trace SQLiteDict... number processed 480000
+
+Creating trace SQLiteDict... number processed 490000
+
+Creating trace SQLiteDict... number processed 500000
+
+Creating trace SQLiteDict... number processed 510000
+
+Creating trace SQLiteDict... number processed 520000
+
+Creating trace SQLiteDict... number processed 530000
+
+Creating trace SQLiteDict... number processed 540000
+
+Creating trace SQLiteDict... number processed 550000
+
+Creating trace SQLiteDict... number processed 560000
+
+Creating trace SQLiteDict... number processed 570000
+
+Creating trace SQLiteDict... number processed 580000
+
+Creating trace SQLiteDict... number processed 590000
+
+Creating trace SQLiteDict... number processed 600000
+
+Creating trace SQLiteDict... number processed 610000
+
+Creating trace SQLiteDict... number processed 620000
+
+Creating trace SQLiteDict... number processed 630000
+
+Creating trace SQLiteDict... number processed 640000
+
+Creating trace SQLiteDict... number processed 640370
+
+Creating spacy_toks SQLiteDict... number processed 10000
+
+Creating spacy_toks SQLiteDict... number processed 20000
+
+Creating spacy_toks SQLiteDict... number processed 30000
+
+Creating spacy_toks SQLiteDict... number processed 40000
+
+Creating spacy_toks SQLiteDict... number processed 50000
+
+Creating spacy_toks SQLiteDict... number processed 60000
+
+Creating spacy_toks SQLiteDict... number processed 70000
+
+Creating spacy_toks SQLiteDict... number processed 80000
+
+Creating spacy_toks SQLiteDict... number processed 90000
+
+Creating spacy_toks SQLiteDict... number processed 100000
+
+Creating spacy_toks SQLiteDict... number processed 110000
+
+Creating spacy_toks SQLiteDict... number processed 120000
+
+Creating spacy_toks SQLiteDict... number processed 130000
+
+Creating spacy_toks SQLiteDict... number processed 140000
+
+Creating spacy_toks SQLiteDict... number processed 150000
+
+Creating spacy_toks SQLiteDict... number processed 160000
+
+Creating spacy_toks SQLiteDict... number processed 170000
+
+Creating spacy_toks SQLiteDict... number processed 180000
+
+Creating spacy_toks SQLiteDict... number processed 190000
+
+Creating spacy_toks SQLiteDict... number processed 200000
+
+Creating spacy_toks SQLiteDict... number processed 210000
+
+Creating spacy_toks SQLiteDict... number processed 220000
+
+Creating spacy_toks SQLiteDict... number processed 230000
+
+Creating spacy_toks SQLiteDict... number processed 240000
+
+Creating spacy_toks SQLiteDict... number processed 250000
+
+Creating spacy_toks SQLiteDict... number processed 260000
+
+Creating spacy_toks SQLiteDict... number processed 270000
+
+Creating spacy_toks SQLiteDict... number processed 280000
+
+Creating spacy_toks SQLiteDict... number processed 290000
+
+Creating spacy_toks SQLiteDict... number processed 300000
+
+Creating spacy_toks SQLiteDict... number processed 310000
+
+Creating spacy_toks SQLiteDict... number processed 320000
+
+Creating spacy_toks SQLiteDict... number processed 330000
+
+Creating spacy_toks SQLiteDict... number processed 340000
+
+Creating spacy_toks SQLiteDict... number processed 350000
+
+Creating spacy_toks SQLiteDict... number processed 360000
+
+Creating spacy_toks SQLiteDict... number processed 370000
+
+Creating spacy_toks SQLiteDict... number processed 380000
+
+Creating spacy_toks SQLiteDict... number processed 390000
+
+Creating spacy_toks SQLiteDict... number processed 400000
+
+Creating spacy_toks SQLiteDict... number processed 410000
+
+Creating spacy_toks SQLiteDict... number processed 420000
+
+Creating spacy_toks SQLiteDict... number processed 430000
+
+Creating spacy_toks SQLiteDict... number processed 440000
+
+Creating spacy_toks SQLiteDict... number processed 450000
+
+Creating spacy_toks SQLiteDict... number processed 460000
+
+Creating spacy_toks SQLiteDict... number processed 470000
+
+Creating spacy_toks SQLiteDict... number processed 480000
+
+Creating spacy_toks SQLiteDict... number processed 490000
+
+Creating spacy_toks SQLiteDict... number processed 500000
+
+Creating spacy_toks SQLiteDict... number processed 510000
+
+Creating spacy_toks SQLiteDict... number processed 520000
+
+Creating spacy_toks SQLiteDict... number processed 530000
+
+Creating spacy_toks SQLiteDict... number processed 540000
+
+Creating spacy_toks SQLiteDict... number processed 550000
+
+Creating spacy_toks SQLiteDict... number processed 560000
+
+Creating spacy_toks SQLiteDict... number processed 570000
+
+Creating spacy_toks SQLiteDict... number processed 580000
+
+Creating spacy_toks SQLiteDict... number processed 590000
+
+Creating spacy_toks SQLiteDict... number processed 600000
+
+Creating spacy_toks SQLiteDict... number processed 610000
+
+Creating spacy_toks SQLiteDict... number processed 620000
+
+Creating spacy_toks SQLiteDict... number processed 630000
+
+Creating spacy_toks SQLiteDict... number processed 640000
+
+Creating spacy_toks SQLiteDict... number processed 640370
+
+Creating spacy_pos SQLiteDict... number processed 10000
+
+Creating spacy_pos SQLiteDict... number processed 20000
+
+Creating spacy_pos SQLiteDict... number processed 30000
+
+Creating spacy_pos SQLiteDict... number processed 40000
+
+Creating spacy_pos SQLiteDict... number processed 50000
+
+Creating spacy_pos SQLiteDict... number processed 60000
+
+Creating spacy_pos SQLiteDict... number processed 70000
+
+Creating spacy_pos SQLiteDict... number processed 80000
+
+Creating spacy_pos SQLiteDict... number processed 90000
+
+Creating spacy_pos SQLiteDict... number processed 100000
+
+Creating spacy_pos SQLiteDict... number processed 110000
+
+Creating spacy_pos SQLiteDict... number processed 120000
+
+Creating spacy_pos SQLiteDict... number processed 130000
+
+Creating spacy_pos SQLiteDict... number processed 140000
+
+Creating spacy_pos SQLiteDict... number processed 150000
+
+Creating spacy_pos SQLiteDict... number processed 160000
+
+Creating spacy_pos SQLiteDict... number processed 170000
+
+Creating spacy_pos SQLiteDict... number processed 180000
+
+Creating spacy_pos SQLiteDict... number processed 190000
+
+Creating spacy_pos SQLiteDict... number processed 200000
+
+Creating spacy_pos SQLiteDict... number processed 210000
+
+Creating spacy_pos SQLiteDict... number processed 220000
+
+Creating spacy_pos SQLiteDict... number processed 230000
+
+Creating spacy_pos SQLiteDict... number processed 240000
+
+Creating spacy_pos SQLiteDict... number processed 250000
+
+Creating spacy_pos SQLiteDict... number processed 260000
+
+Creating spacy_pos SQLiteDict... number processed 270000
+
+Creating spacy_pos SQLiteDict... number processed 280000
+
+Creating spacy_pos SQLiteDict... number processed 290000
+
+Creating spacy_pos SQLiteDict... number processed 300000
+
+Creating spacy_pos SQLiteDict... number processed 310000
+
+Creating spacy_pos SQLiteDict... number processed 320000
+
+Creating spacy_pos SQLiteDict... number processed 330000
+
+Creating spacy_pos SQLiteDict... number processed 340000
+
+Creating spacy_pos SQLiteDict... number processed 350000
+
+Creating spacy_pos SQLiteDict... number processed 360000
+
+Creating spacy_pos SQLiteDict... number processed 370000
+
+Creating spacy_pos SQLiteDict... number processed 380000
+
+Creating spacy_pos SQLiteDict... number processed 390000
+
+Creating spacy_pos SQLiteDict... number processed 400000
+
+Creating spacy_pos SQLiteDict... number processed 410000
+
+Creating spacy_pos SQLiteDict... number processed 420000
+
+Creating spacy_pos SQLiteDict... number processed 430000
+
+Creating spacy_pos SQLiteDict... number processed 440000
+
+Creating spacy_pos SQLiteDict... number processed 450000
+
+Creating spacy_pos SQLiteDict... number processed 460000
+
+Creating spacy_pos SQLiteDict... number processed 470000
+
+Creating spacy_pos SQLiteDict... number processed 480000
+
+Creating spacy_pos SQLiteDict... number processed 490000
+
+Creating spacy_pos SQLiteDict... number processed 500000
+
+Creating spacy_pos SQLiteDict... number processed 510000
+
+Creating spacy_pos SQLiteDict... number processed 520000
+
+Creating spacy_pos SQLiteDict... number processed 530000
+
+Creating spacy_pos SQLiteDict... number processed 540000
+
+Creating spacy_pos SQLiteDict... number processed 550000
+
+Creating spacy_pos SQLiteDict... number processed 560000
+
+Creating spacy_pos SQLiteDict... number processed 570000
+
+Creating spacy_pos SQLiteDict... number processed 580000
+
+Creating spacy_pos SQLiteDict... number processed 590000
+
+Creating spacy_pos SQLiteDict... number processed 600000
+
+Creating spacy_pos SQLiteDict... number processed 610000
+
+Creating spacy_pos SQLiteDict... number processed 620000
+
+Creating spacy_pos SQLiteDict... number processed 630000
+
+Creating spacy_pos SQLiteDict... number processed 640000
+
+Creating spacy_pos SQLiteDict... number processed 640370
+
+Creating spacy_deps SQLiteDict... number processed 10000
+
+Creating spacy_deps SQLiteDict... number processed 20000
+
+Creating spacy_deps SQLiteDict... number processed 30000
+
+Creating spacy_deps SQLiteDict... number processed 40000
+
+Creating spacy_deps SQLiteDict... number processed 50000
+
+Creating spacy_deps SQLiteDict... number processed 60000
+
+Creating spacy_deps SQLiteDict... number processed 70000
+
+Creating spacy_deps SQLiteDict... number processed 80000
+
+Creating spacy_deps SQLiteDict... number processed 90000
+
+Creating spacy_deps SQLiteDict... number processed 100000
+
+Creating spacy_deps SQLiteDict... number processed 110000
+
+Creating spacy_deps SQLiteDict... number processed 120000
+
+Creating spacy_deps SQLiteDict... number processed 130000
+
+Creating spacy_deps SQLiteDict... number processed 140000
+
+Creating spacy_deps SQLiteDict... number processed 150000
+
+Creating spacy_deps SQLiteDict... number processed 160000
+
+Creating spacy_deps SQLiteDict... number processed 170000
+
+Creating spacy_deps SQLiteDict... number processed 180000
+
+Creating spacy_deps SQLiteDict... number processed 190000
+
+Creating spacy_deps SQLiteDict... number processed 200000
+
+Creating spacy_deps SQLiteDict... number processed 210000
+
+Creating spacy_deps SQLiteDict... number processed 220000
+
+Creating spacy_deps SQLiteDict... number processed 230000
+
+Creating spacy_deps SQLiteDict... number processed 240000
+
+Creating spacy_deps SQLiteDict... number processed 250000
+
+Creating spacy_deps SQLiteDict... number processed 260000
+
+Creating spacy_deps SQLiteDict... number processed 270000
+
+Creating spacy_deps SQLiteDict... number processed 280000
+
+Creating spacy_deps SQLiteDict... number processed 290000
+
+Creating spacy_deps SQLiteDict... number processed 300000
+
+Creating spacy_deps SQLiteDict... number processed 310000
+
+Creating spacy_deps SQLiteDict... number processed 320000
+
+Creating spacy_deps SQLiteDict... number processed 330000
+
+Creating spacy_deps SQLiteDict... number processed 340000
+
+Creating spacy_deps SQLiteDict... number processed 350000
+
+Creating spacy_deps SQLiteDict... number processed 360000
+
+Creating spacy_deps SQLiteDict... number processed 370000
+
+Creating spacy_deps SQLiteDict... number processed 380000
+
+Creating spacy_deps SQLiteDict... number processed 390000
+
+Creating spacy_deps SQLiteDict... number processed 400000
+
+Creating spacy_deps SQLiteDict... number processed 410000
+
+Creating spacy_deps SQLiteDict... number processed 420000
+
+Creating spacy_deps SQLiteDict... number processed 430000
+
+Creating spacy_deps SQLiteDict... number processed 440000
+
+Creating spacy_deps SQLiteDict... number processed 450000
+
+Creating spacy_deps SQLiteDict... number processed 460000
+
+Creating spacy_deps SQLiteDict... number processed 470000
+
+Creating spacy_deps SQLiteDict... number processed 480000
+
+Creating spacy_deps SQLiteDict... number processed 490000
+
+Creating spacy_deps SQLiteDict... number processed 500000
+
+Creating spacy_deps SQLiteDict... number processed 510000
+
+Creating spacy_deps SQLiteDict... number processed 520000
+
+Creating spacy_deps SQLiteDict... number processed 530000
+
+Creating spacy_deps SQLiteDict... number processed 540000
+
+Creating spacy_deps SQLiteDict... number processed 550000
+
+Creating spacy_deps SQLiteDict... number processed 560000
+
+Creating spacy_deps SQLiteDict... number processed 570000
+
+Creating spacy_deps SQLiteDict... number processed 580000
+
+Creating spacy_deps SQLiteDict... number processed 590000
+
+Creating spacy_deps SQLiteDict... number processed 600000
+
+Creating spacy_deps SQLiteDict... number processed 610000
+
+Creating spacy_deps SQLiteDict... number processed 620000
+
+Creating spacy_deps SQLiteDict... number processed 630000
+
+Creating spacy_deps SQLiteDict... number processed 640000
+
+Creating spacy_deps SQLiteDict... number processed 640370
+Time elapsed creating sqlite dicts: 00:13:59
+
+npartitions 213456, remainder 2
+len(paritions) calculated for 3 NUM_JOBS: 3 
+Time elapsed in main: 00:13:59
+
+finished processing files...

@@ -1,0 +1,29 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+---argparser---:
+outDir betatest/out/
+
+nwords_fnames:  3
+betatest/out/words_job1.db
+betatest/out/words_job2.db
+betatest/out/words_job3.db
+
+Time elapsed adding file betatest/out/words_job1.db to words_dict:	00:10:26
+
+Time elapsed adding file betatest/out/words_job2.db to words_dict:	00:11:20
+
+Time elapsed adding file betatest/out/words_job3.db to words_dict:	00:11:11
+
+len(words): 5944207
+
+--stats--
+
+Time elapsed creating amalgamated word index:	00:33:09

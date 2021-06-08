@@ -1,0 +1,32 @@
+[nltk_data] Downloading package punkt to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package treebank to
+[nltk_data]     /home1/i/irebecca/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+---argparser---:
+job_id 1
+outDir betatest/out/
+dataDir betatest/data/
+clip_len 225
+
+nfiles:  3
+
+fnames: 
+['betatest/data/nyt1/nyt_eng_201010.gz', 'betatest/data/nyt2/nyt_eng_201011.gz', 'betatest/data/nyt3/nyt_eng_201012.gz']
+
+current file being processed: nyt_eng_201010.gz
+entering main...
+starting spacy annotations..
+end spacy annotations..
+
+Read File Stats - total_ndocs: 6050  total_nsents: 225426 total_ntrace: 225426 total_nspacy_docs: 225426
+Time elapsed reading file for job 1:	00:00:28
+Time elapsed spacy annotations for job 1:	00:47:19
+
+finished processing jobs...
+Time elapsed in main for job 1: 00:47:53
