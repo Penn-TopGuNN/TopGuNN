@@ -25,8 +25,26 @@ import json
 import synchronized_map
 from threading import Lock
 
-# import pdb
-## NOTE: device = torch.device("cuda" if torch.cuda.is_available() else "cpu") ##.to(device)
+'''usage:
+source ~/annoy_normal/bin/activate
+#!/bin/zsh
+#$ -cwd
+#$ -N synchronized_word_sim_search
+#$ -l h=nlpgrid10
+#$ -l h_vmem=150G
+python3 -u code/synchronized_word_sim_search.py \
+-num_workers 5 \
+-queryDir 'betatest/data/' \
+-outDir 'betatest/out/' \
+-annoy_run_id 'annoy_index' \
+-top_n 1000 \
+-top_n_increment 500 \
+-top_n_threshold 3000 \
+-num_uniq 10 \
+-acc 1 \
+--SINGLE_QUERY \
+> 'betatest/out/synchronized_word_sim_search.stdout' 2>&1 
+'''
 
 '''global argparser'''
 parser = argparse.ArgumentParser(description='Processing list of files...')
@@ -41,6 +59,8 @@ parser.add_argument('-top_n_threshold', type=int, required=False, default=3000, 
 parser.add_argument('-num_uniq', type=int, required=False, default=10, help='number of unique results required')
 parser.add_argument('-acc', type=float, required=False, default=1.0, help='The accuracy from 0 to 1')
 parser.add_argument('-dim', type=int, default=768, required=False, help='dimensions required to build annoy index')
+parser.add_argument('--SINGLE_QUERY', action='store_false', dest='MULTI_INDICATED', required=False, help='Indicates there is only 1 query matrix.')
+parser.add_argument('--MULTI_QUERY', action='store_true', dest='MULTI_INDICATED', required=False, help='Indicates if there are several query matrices.')
 args = parser.parse_args()
 
 
@@ -85,12 +105,19 @@ for annoy_index, fname in zip(annoy_indexes, annoy_indexes_fnames):
 
 annoy_time = 0
 
-## event names
-print('\n---event names---')
-event_names = [f[:-5] for f in listdir(args.queryDir) if f.endswith('.json')]
-print(f'len(event_names): {len(event_names)}\nevent names: ')
-for event in event_names:
-    print(event)
+event_names = None
+if args.MULTI_INDICATED:
+    ## event names
+    print('\n---event names---')
+    event_names = [f[:-5] for f in listdir(args.queryDir) if f.endswith('.json')]
+    print(f'len(event_names): {len(event_names)}\nevent names: ')
+    for event in event_names:
+        print(event)
+else:
+    event_names = ['']
+
+print("\nevent_names: ", event_names)
+
 
 
 
@@ -303,40 +330,79 @@ if __name__ == '__main__':
     for arg in vars(args):
         print(arg, getattr(args, arg))
 
-    # Make sure all files exist or error immediately if they don't
-    for event_name in event_names:
-        assert os.path.exists(args.queryDir+'xq_'+event_name+'.dat')
-        assert os.path.exists(args.queryDir+'qsentences_'+event_name+'.db')
-        assert os.path.exists(args.queryDir+'qwords_'+event_name+'.db')
-
-
     total_query_words = 0
-    for event_name in event_names:
-        xq_fname = args.queryDir+'xq_'+event_name+'.dat'
+    if args.MULTI_INDICATED:
+
+        print("multiple query matrices indicated!")
+
+        # multiple query matrices indicated (mutliple events to run queries for)
+        # Make sure all files exist or error immediately if they don't
+        for event_name in event_names:
+            assert os.path.exists(args.queryDir+'xq_'+event_name+'.dat')
+            assert os.path.exists(args.queryDir+'qsentences_'+event_name+'.db')
+            assert os.path.exists(args.queryDir+'qwords_'+event_name+'.db')
+      
+        for event_name in event_names:
+            xq_fname = args.queryDir+'xq_'+event_name+'.dat'
+            xq = np.memmap(xq_fname, dtype='float32', mode='r', shape=(int(shapes_dict[xq_fname]),args.dim)) ## word embeddings of the query matrix
+            total_query_words += len(xq)
+            del xq
+
+        print("Total Query Words:", total_query_words)
+
+        # Load data
+        sentences = SqliteDict(args.outDir+'sentences.db')
+        trace = SqliteDict(args.outDir+'trace.db')
+        words = SqliteDict(args.outDir+'words.db')  ## tuple(word_id, word, (doc_id, sent_id)) for each content word       
+
+
+        # Run word_sim search over all events
+        synchronized_map.init(args.num_workers, total_query_words, _log = True)
+        synchronized_map.synchronize_over(word_sim_search, [(
+                event_name,
+                sentences,
+                trace,
+                words,
+                args.queryDir+event_name+'.csv',
+                args.queryDir+'xq_'+event_name+'.dat',
+                args.queryDir+'qsentences_'+event_name+'.db',
+                args.queryDir+'qwords_'+event_name+'.db',
+            ) for event_name in event_names])
+
+    else:
+
+        print("single query matrix indicated!") 
+
+        # there is only a single query matrix (1 event)
+        assert os.path.exists(args.queryDir+'xq.dat')
+        assert os.path.exists(args.queryDir+'qsentences.db')
+        assert os.path.exists(args.queryDir+'qwords.db')
+
+        xq_fname = args.queryDir+'xq.dat'
         xq = np.memmap(xq_fname, dtype='float32', mode='r', shape=(int(shapes_dict[xq_fname]),args.dim)) ## word embeddings of the query matrix
         total_query_words += len(xq)
         del xq
 
-    print("Total Query Words:", total_query_words)
+        print("Total Query Words:", total_query_words)
 
-    # Load data
-    sentences = SqliteDict(args.outDir+'sentences.db')
-    trace = SqliteDict(args.outDir+'trace.db')
-    words = SqliteDict(args.outDir+'words.db')  ## tuple(word_id, word, (doc_id, sent_id)) for each content word       
+        # Load data
+        sentences = SqliteDict(args.outDir+'sentences.db')
+        trace = SqliteDict(args.outDir+'trace.db')
+        words = SqliteDict(args.outDir+'words.db')  ## tuple(word_id, word, (doc_id, sent_id)) for each content word       
 
 
-    # Run word_sim search over all events
-    synchronized_map.init(args.num_workers, total_query_words, _log = True)
-    synchronized_map.synchronize_over(word_sim_search, [(
-            event_name,
-            sentences,
-            trace,
-            words,
-            args.queryDir+event_name+'.csv',
-            args.queryDir+'xq_'+event_name+'.dat',
-            args.queryDir+'qsentences_'+event_name+'.db',
-            args.queryDir+'qwords_'+event_name+'.db',
-        ) for event_name in event_names])
+        # Run word_sim search over single event
+        synchronized_map.init(args.num_workers, total_query_words, _log = True)
+        synchronized_map.synchronize_over(word_sim_search, [(
+                event_name,
+                sentences,
+                trace,
+                words,
+                args.queryDir+'synchronized_word_sim_search_results.csv',
+                args.queryDir+'xq'+event_name+'.dat',
+                args.queryDir+'qsentences'+event_name+'.db',
+                args.queryDir+'qwords'+event_name+'.db',
+            ) for event_name in event_names])
 
     # Cleanup
     synchronized_map.close()

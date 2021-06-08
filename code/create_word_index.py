@@ -7,8 +7,8 @@ import util
 from sqlitedict import SqliteDict
 
 '''usage: (goes in shell script)
-python3 -u AWS_code/create_word_index.py \
--outDir 'AWS_code/1out/'
+python3 -u code/create_word_index.py \
+-outDir 'betatest/out/'
 '''
 
 

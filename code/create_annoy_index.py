@@ -17,13 +17,14 @@ import numpy as np
 '''usage for annoy (goes into the shell script):
 python3 -u create_annoy_index.py \
 -annoy_index 'annoy_index_run_id.ann'
--outdir 'AWS_code/1out/' \
--num_trees 640 \
+-outdir 'betatest/out/' \
+-num_trees 200 \
 
 num_trees = max(50, int((number_of_vectors / 3000000.0) * 50.0))
 search_k = top_n * num_trees
 
-## Expected nembeddings: 9634502
+## Expected nembeddings for 3mo betatest: 5944207
+## Expected nembeddings for 5mo betatest: 9634502
 
 '''
 
@@ -110,7 +111,7 @@ if __name__ == '__main__':
 
     main_time = time.time() - start
     print('finished annoy index job launcher in main...')
-    print(f'Time elapsed building annoy index in main:\t{time.strftime("%H:%M:%S", time.gmtime(build_time))}')
+    print(f'Time elapsed building annoy index in main:\t{time.strftime("%H:%M:%S", time.gmtime(main_time))}')
 
 
 '''

@@ -18,16 +18,8 @@ import pickle as pkl
 '''usage: (goes in shell script create_amalgams.sh)
 python3 -u code/create_amalgams.py \
 -outDir 'betatest/out/' \
-
-Expected output files:
-
-        - sentences.db
-        - trace.db
-        - spacy_toks.db
-        - spacy_pos.db
-        - spacy_deps.db
-        - job_slices.pkl  //list of tuples (start_index, end_index) for each partition
 '''
+
 ## global argparser
 parser = argparse.ArgumentParser(description='Processing list of files...')
 parser.add_argument('-outDir', required=True, help='example: out/')

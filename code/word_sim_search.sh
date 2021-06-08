@@ -4,7 +4,7 @@ source ~/annoy_cpu/bin/activate
 # TODO: switch out faiss and annoy imports in py script
 #!/bin/zsh
 #$ -cwd
-#$ -N simsrch14out
+#$ -N word_sim_search
 #$ -l h=nlpgrid10
 #$ -l h_vmem=50G
-python3 -u AWS_code/word_sim_search.py -outDir 'AWS_code/14out_5mo_pkl_slices/' -top_n 50 -num_trees 160 --ANNOY -sentences_dict 'sentences.db' -trace_dict 'trace.db' -annoy_index 'annoy_index.ann' -csv_file 'eventprimitives_pruned.csv' -words_dict 'words.db' -xq 'xq.dat' -qsents 'qsentences.db' -qwords 'qwords.db' > 'AWS_code/14out_5mo_pkl_slices/word_sim_search.stdout' 2>&1 
+python3 -u code/word_sim_search.py -outDir 'betatest/out/' -top_n 100 -num_trees 50 --ANNOY -sentences_dict 'sentences.db' -trace_dict 'trace.db' -annoy_index 'annoy_index.ann' -csv_file 'eventprimitives.csv' -words_dict 'words.db' -xq 'xq.dat' -qsents 'qsentences.db' -qwords 'qwords.db' > 'betatest/out/word_sim_search.stdout' 2>&1 

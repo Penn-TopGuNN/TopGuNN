@@ -3,10 +3,21 @@ from multiprocessing import Pool
 # from multiprocessing import Pool, Lock
 import os
 import random
+import time
 
-NUM_GPUS = 16
-NUM_JOBS = 960 # 5 month test run
-GPU_IDS = list(range(17))
+'''usage:
+python3 -u code/embed_and_filter_job_launcher.py \
+'''
+
+## big AWS Job
+# NUM_GPUS = 16
+# NUM_JOBS = 960 
+# GPU_IDS = list(range(17))
+
+## for 3 month betatest
+NUM_GPUS = 3
+NUM_JOBS = 3 # 3 month test run
+GPU_IDS = list(range(1,4)) # [1,2,3]
 
 
 def job(job_args):
@@ -35,7 +46,7 @@ def job(job_args):
 
     print("starting job %d..." % (i,))
     
-    os.system('''python3 -u AWS_code/embed_and_filter.py -job_id {} -outDir 'AWS_code/' -dataDir 'data/' -gpu_id {}  -batch_size 175 -clip_len 225 -job_slices "job_slices.pkl" -query_sentences 'data/query_sentences.txt' -sentences_dict 'sentences.db' -trace_dict 'trace.db' -spacy_toks_dict 'spacy_toks.db' -spacy_pos_dict 'spacy_pos.db' -spacy_deps_dict 'spacy_deps.db' --BERT --MEAN > 'AWS_code/forreal/embed_and_filter_job{}.stdout' 2>&1'''.format(i, gpu_id, i))
+    os.system('''python3 -u code/embed_and_filter.py -job_id {} -outDir 'betatest/out/' -dataDir 'betatest/data/' -gpu_id {}  -batch_size 175 -clip_len 225 -job_slices "job_slices.pkl" -query_sentences 'betatest/data/query_sentences.txt' -sentences_dict 'sentences.db' -trace_dict 'trace.db' -spacy_toks_dict 'spacy_toks.db' -spacy_pos_dict 'spacy_pos.db' -spacy_deps_dict 'spacy_deps.db' --BERT --MEAN > 'betatest/out/embed_and_filter_job{}.stdout' 2>&1'''.format(i, gpu_id, i))
     print('finished bash script..')
 
     # Free up the GPU for other future proccesses

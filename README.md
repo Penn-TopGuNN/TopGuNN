@@ -44,7 +44,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 	TODO for each indv'l user: review global argparser vars in .py files to help you understand the command line arguments in your shell script
 	NOTE: .db==sqlite_dict		.dat==npy_memmap		.pkl==pickle_file
 
-	1.	create_amalgams_job_array.py / create_amalgams_job_array.sh (which runs create_amalgams.py on each month of Gigaword in a job array simultaneously)
+	1.	create_amalgams_job_array.sh --> runs create_amalgams_job_array.py (which runs create_amalgams.py on each month of Gigaword in a job array simultaneously)
 
 		sentence splits and generate SpaCy annotations for each month of Gigaword.
 		each month of Gigaword will have it's own index of sentences, trace information, and spacy annotations.
@@ -61,7 +61,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 			- create_amalgams_job_array_job#.stdout (1 stdout per job, we had 960 jobs, so we had 960 stdouts)
 			NOTE: You do not have to print out stdouts for your jobs, we have it inserted as default in our shell scripts.  Just remove if you do not like them or need them.
 
-	2. combine_almalgams_create_sqlitedicts.py / combine_almalgams_create_sqlitedicts.sh
+	2. combine_almalgams_create_sqlitedicts.sh --> runs combine_almalgams_create_sqlitedicts.py
 
 		Combines all the amalgamations
 
@@ -76,21 +76,23 @@ Running the parallelized job over AWS is divided into 4 parts:
 			- job_slices.pkl  //list of tuples (start_index, end_index) for each partition
 			- combine_amalgams_create_sqlitedicts.stdout 
 
-	3. create_sqlite_indexes.py / create_sqlite_indexes.sh
+	3. create_sqlite_indexes.sh --> runs create_sqlite_indexes.py
 
 	   creates indexes to precompute the range of the partition of the amalgamated sqlite dictionary being processed for a particular job in embed_and_filter.py in the next script.
 
 	   Expected output files:
 	   		- None.  This is modifying the current amalgamated sqlite dictionaries, so that job paritions are uploaded faster and embed_and_filtering can process more rapidly for each job.
+	   		- create_sqlite_indexes.stdout (if you elected to print it out in shell file)
 
 
 ### Parallelized job on the GPU (embedding and filtering for annoy index, and creating the query matrix)
 
-	4.	embed_and_filter.py / embed_and_filter.sh
+	4.	embed_and_filter_job_launcher.py (runs embed_and_filter.py for each job for the number of jobs you want to parallelize on the GPUs)
 
 		embeddings for both the query matrix and the database matrix are generated on AWS.
 		additionally, files of the filtered words extracted in each of the jobs are outputted to files.
 		NOTE: the lengths of the word embeddings and words should be equal
+		NOTE: Ensure you activate your GPU environment now
 
 		Expected output files:
 
@@ -107,24 +109,29 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 		-shapes.txt    //memmap shapes of each of the jobs needed to load in annoy index later
 
+		embed_and_filter_job#.stdout
+		embed_and_filter_job_launcher.stdout
+
 ### Post-processing on the CPU (5a. and 5b. you can and should run simultaneously)
 
-	5a.	create_word_index.py / create_word_index.sh
+	5a.	create_word_index.sh --> runs create_word_index.py
 
-		creates an amalgamated word_index and from each of the jobs that were ran in embed_and_filter.py
+		creates an amalgamated word_index and from each of the jobs that were ran in embed_and_filter_job_launcher.py in Step 4.	
 		after the file is done, you should have one amalgamated word_index
 
 		Expected output files:
 
 		- words.db
 
-	5b.	create_annoy_index.py, create_annoy_index.sh  / create_faiss_index.py, create_faiss_index.sh
+	5b.	create_annoy_index.sh --> runs create_annoy_index.py, or
+		create_faiss_index.sh --> runs create_faiss_index.py
 
 		annoy index and faiss index are created using separate files (depending on whether you use FAISS or ANNOY).  They must have their own separate virtenvs.
 
 		Expected output files:
 
-		annoy_index.ann    //ex. 52.32GB @ 5 months, 200 trees for subset of the Gigaword Corpus
+		annoy_index_job#.ann    //ex. 52.32GB @ 5 months, 200 trees for subset of the Gigaword Corpus
+		annoy_index_job#.ann    //ex. 52.32GB @ 3 months, 200 trees for subset of the Gigaword Corpus
 
 # Now the Top GuNN part! Fast KNN-retrieval!
 
@@ -132,14 +139,23 @@ Running the parallelized job over AWS is divided into 4 parts:
 
 ## Running queries on the CPU
 
-	6.	word_sim_search.py / word_sim_search.sh
+	6.	synchronized_word_sim_search.sh --> runs synchronized_word_sim_search.py
 
-		Running your queries!  Using the query matrix that was generated in embed_and_filter.py, each content word is queried for and searched in the annoy or faiss index (whichever one was created)
+		This handles a single query matrix or if you have several query matrices you want to run TopGuNN over
+		If you have multiple query matrices you can indicate this with --MULTI_QUERY flag on command line.
+		You must have json files of trigger words for each query matrix.
+		Ex.
+		Acquit.json ##[["change"], ["demoted"]]
+		Sentence.json ## [["sentence"], ["sentenced"], ["sentenced"]]
+		Demotion.json ## [["change"], ["demoted"]]
+
+		Using the query matrix that was generated in embed_and_filter_job_launcher.py, each content word is queried for and synchronized searched over all the annoy or faiss indexes (whichever index you created).
+		Then, all the results from all of the indexes are combined at the very end to give you the fastest similarity search possible.
 
 		Expected output files
 
-		- eventprimitives.csv     //results in csv format of the retrieved sentences
-		- wordsimsearch.stdout    //results in .txt format of the results
+		- synchronized_word_sim_search_results.csv     //results in csv format of the retrieved sentences
+		- synchronized_word_sim_search.stdout    //results in .txt format of the results
 
 
 

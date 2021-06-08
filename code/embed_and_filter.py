@@ -17,30 +17,29 @@ from sqlitedict import SqliteDict
 import ast
 import pickle as pkl
 import sqlite3
-## TODO: line 244, 264 - determine increment at which to report stats for stdout (CTRL-F) 'if round_id % 100 == 0:' to check if in script
-## TODO: remove '__debugging_delete_after' keyword from debuggin (CTRL-F) to check if in script
-## TODO: Remove debugging lines - 185-187
-## TODO: commented out line 124, b/c we have pre-clipped spacy toks no need to clip bert_NER_toks inside the if statement
-## TODO: update correct file on line 508
-## TODO: CTRL-F "finalcheck" or "mpcheck" remove debugging statements from filenames
 
 nlp = spacy.load("en_core_web_lg", disable=["ner"]) ## you only need the parser and tagger
 ## device = torch.device("cuda" if torch.cuda.is_available() else "cpu") ##.to(device)
 ## NOTE: once debugging is ironed-out remove all print statements, csv file, and time study files, for AWS
 
-'''usage: (goes in shell script)
-python3 -u AWS_code/embed_and_filter.py \
+'''usage: (if you use embed_and_filter_job_launcher.py) 
+python3 -u code/embed_and_filter_job_launcher.py \
+you must change the command line arguments inside the embed_and_filter_job_launcher.py file
+'''
+
+'''usage: (if you use embed_and_filter.sh)
+python3 -u code/embed_and_filter.py \
 -job_id $i \
--outDir 'AWS_code/bigjob/' \
--dataDir 'data/' \
+-outDir 'betatest/out/' \
+-dataDir 'betatest/data/' \
 -NUM_JOBS 2 \
 -NUM_GPUS 2 \
 -PROC_PER_GPU 1 \
--gpu_ids 67 \
+-gpu_ids 0 1 \
 -batch_size 175 \
 -clip_len 225 \
 -job_slices "job_slices.pkl" \
--query_sentences 'data/query_sentences.txt' \
+-query_sentences 'betatest/data/query_sentences.txt' \
 -sentences_dict 'sentences.db' \
 -trace_dict 'trace.db' \
 -spacy_toks_dict 'spacy_toks.db' \
@@ -48,8 +47,8 @@ python3 -u AWS_code/embed_and_filter.py \
 -spacy_deps_dict 'spacy_deps.db' \
 --BERT \
 --MEAN \
-> 'AWS_code/bigjob/embed_and_filter_job'$i'.stdout' 2>&1
-alternative: | tee beta_testing/job_array/stdout_job_array.txt) 3>&1 1>&2 2>&3 | tee beta_testing/job_array/stderr_job_array.txt
+> 'betatest/out/embed_and_filter_job'$i'.stdout' 2>&1
+alternative: | tee betatest/out/stdout_job_array.txt) 3>&1 1>&2 2>&3 | tee betatest/out/stderr_job_array.txt
 '''
 
 '''global argparser'''

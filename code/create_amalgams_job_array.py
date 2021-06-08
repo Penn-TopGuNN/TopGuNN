@@ -8,16 +8,14 @@ from nltk.tokenize import sent_tokenize
 import spacy
 import time
 nlp = spacy.load("en_core_web_lg", disable=["ner"])
-## TODO: take out and/or comment-out debugging code from lines 59-64, 77, 85-87
-## TODO: include all files or partial files on line 93
-## TODO: adjust filenames accordingly Line 96 with the correct indexing
+
 
 '''usage: (goes in shell script or copy&paste into command line)
-python3 -u AWS_code/create_amalgams_job_array.py \
+python3 -u code/create_amalgams_job_array.py \
 -job_id $SGE_TASK_ID \
 -outDir 'betatest/out/' \
 -dataDir 'betatest/data/' \
-> AWS_code/bigjob/create_amalgams_job_array_job$SGE_TASK_ID.stdout 2>&1
+> code/out/create_amalgams_job_array_job$SGE_TASK_ID.stdout 2>&1
 '''
 ## global argparser
 parser = argparse.ArgumentParser(description='Processing list of files...')
