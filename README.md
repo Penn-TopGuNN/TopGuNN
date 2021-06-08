@@ -13,7 +13,7 @@ Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G
 
 Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies (Gigaword corpus is approximately 50GBs of data). 
 
-* I have provided data for 3 months of Gigaword, so you can betatest the scripts (see `betatest/` folder, starting at `Order of Script Execution` in this README.md).
+* I have provided data for 3 months of Gigaword, so you can betatest the scripts (see `betatest/` folder, start at [Order of Script Execution](#order-of-script-execution)).
 
 * I have provided all of the stdouts of the results from running each file to compare against.
 
@@ -25,7 +25,6 @@ NOTE: All computation times reported reflect running the scripts on our Penn NLP
 
 
 ## Table of Contents 
-High-Level Overview of The TopGuNN Pipeline
 
 - [Pre-processing on the CPU](#pre-processing-on-the-CPU)
 - [Parallelized jobs on the GPU](#parallelized-jobs-on-the-GPU)
@@ -33,7 +32,7 @@ High-Level Overview of The TopGuNN Pipeline
 - [Running queries on the CPU](#running-queries-on-the-CPU)
 
 
-# Order of Script Execution (START HERE)
+# Order of Script Execution 
 ## Pre-processing on the CPU 
 
 	TODO: Update your shell scripts below with you virtenv and your outDir/dataDir
@@ -89,8 +88,7 @@ High-Level Overview of The TopGuNN Pipeline
 
 		TODO: Activate your GPU environment now
 		Embeddings for both the query matrix and the database matrix are generated here.
-		Files of the filtered words extracted in each of the jobs are outputted to files.
-		
+		Files of the filtered words extracted in each of the jobs are outputted to files.	
 
 		Expected output files:
 
