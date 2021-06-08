@@ -13,10 +13,13 @@ Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G
 
 Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies, and 50GBs of the gigaword corpus. 
 
-I have provided data for 3 months of Gigaword, so you can betatest the scripts (Go through the README.md).
-I have provided all of the stdouts of the results of running each file to compare against.
-I have provided a detailed README.md and additionally a file called `betatest_expected_output.pages` with computation times and file sizes of each step.
-Once you can successfully replicate my results on the 3 month betatest, you are ready to implement this on your own corpus!
+* I have provided data for 3 months of Gigaword, so you can betatest the scripts (Go through the README.md starting at `Order of Script Execution`).
+
+* I have provided all of the stdouts of the results of running each file to compare against.
+
+* I have provided a detailed README.md and additionally a file called `betatest_expected_output.pages` with computation times and file sizes of each step.
+
+* Once you can successfully replicate my results on the 3 month betatest, you are ready to implement this on your own corpus!
 
 
 ### Running The Program
@@ -43,7 +46,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 	- gpu_requirements.txt (in code/)
 
 
-## Order of script execution
+## Order of Script Execution
 ### Pre-processing on the CPU 
 
 	TODO for each indv'l user: update your shell scripts below with you virtenv and your outDir
