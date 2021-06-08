@@ -1,6 +1,6 @@
 <img src="https://github.com/bikegirl/CIT591-NLP-Nitro/blob/master/media/shield-only-RGB-4k.png" align="left" width="60" hieght="60"> <img src="https://github.com/bikegirl/CIT591-NLP-Nitro/blob/master/media/icon.png" align="right" /> 
 
-# Top GuNN Similarity Search <br/>"I feel the need for speed!!!"
+# TopGuNN Similarity Search <br/>"I feel the need for speed!!!"
 Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G" inverted dive with a MIG-28... see ya in pre-flight!
 
 ![Alt Text](https://i.imgur.com/n1mR95b.gif)
@@ -11,7 +11,7 @@ Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G
 
 ### Introduction
 
-Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies (Gigaword corpus is approximately 50GBs of data). 
+Our package, TopGuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies (Gigaword corpus is approximately 50GBs of data). 
 
 * I have provided data for 3 months of Gigaword, so you can betatest the scripts (see `betatest/` folder, start at [Order of Script Execution](#order-of-script-execution)).
 
@@ -129,7 +129,7 @@ NOTE: All computation times reported reflect running the scripts on our Penn NLP
 		Expected output files:
 		annoy_index_job#.ann    //ex. 7.1-7.3GB @ for each job, assuming around 200K sentences each.
 
-# Now the Top GuNN part! Fast KNN-retrieval!
+# Now the TopGuNN part! Fast KNN-retrieval!
 
 ![Alt Text](https://i.imgur.com/40fvFWo.gif)
 
