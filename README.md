@@ -13,7 +13,7 @@ Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G
 
 Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies, and 50GBs of the gigaword corpus. 
 
-* I have provided data for 3 months of Gigaword, so you can betatest the scripts (Go through the README.md starting at `Order of Script Execution`).
+* I have provided data for 3 months of Gigaword (see `betatest/` folder), so you can betatest the scripts (go through the README.md starting at `Order of Script Execution`).
 
 * I have provided all of the stdouts of the results of running each file to compare against.
 
@@ -116,6 +116,8 @@ Running the parallelized job over AWS is divided into 4 parts:
 		-word_embeds_job#.dat	
 		-words_job#.db	  //filtered words from gigaword corpus
 
+		#### other
+
 		-shapes.txt    //memmap shapes of each of the jobs needed to load in annoy index later
 
 		embed_and_filter_job#.stdout
@@ -138,9 +140,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 		annoy index and faiss index are created using separate files (depending on whether you use FAISS or ANNOY).  They must have their own separate virtenvs.
 
 		Expected output files:
-
-		annoy_index_job#.ann    //ex. 52.32GB @ 5 months, 200 trees for subset of the Gigaword Corpus
-		annoy_index_job#.ann    //ex. 52.32GB @ 3 months, 200 trees for subset of the Gigaword Corpus
+		annoy_index_job#.ann    //ex. 7.1-7.3GB @ for each job, assuming around 200K sentences each.
 
 # Now the Top GuNN part! Fast KNN-retrieval!
 
@@ -161,7 +161,7 @@ Running the parallelized job over AWS is divided into 4 parts:
 		Using the query matrix that was generated in embed_and_filter_job_launcher.py, each content word is queried for and synchronized searched over all the annoy or faiss indexes (whichever index you created).
 		Then, all the results from all of the indexes are combined at the very end to give you the fastest similarity search possible.
 
-		Expected output files
+		Expected output files:
 
 		- synchronized_word_sim_search_results.csv     //results in csv format of the retrieved sentences
 		- synchronized_word_sim_search.stdout    //results in .txt format of the results
