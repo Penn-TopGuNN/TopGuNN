@@ -21,7 +21,7 @@ Our package, Top GuNN Similarity Search, provides python-based software to autom
 
 * Once you can successfully replicate my results on the 3 month betatest, you are ready to implement this on your own corpus!
 
-NOTE: All computation times reported reflect running our scripts on our Penn NLP servers, which use spinning disk, so your times might be even faster depending on your resources.
+NOTE: All computation times reported reflect running the scripts on our Penn NLP clusters, which use spinning disk, so times might vary slightly depending on your resources.
 
 
 ## Table of Contents 
@@ -36,7 +36,8 @@ High-Level Overview of The TopGuNN Pipeline
 # Order of Script Execution (START HERE)
 ## Pre-processing on the CPU 
 
-	TODO: update your shell scripts below with you virtenv and your outDir/dataDir
+	TODO: Update your shell scripts below with you virtenv and your outDir/dataDir
+	TODO: Activate your CPU environment now
 	NOTE: .db==sqlite_dict		.dat==npy_memmap		.pkl==pickle_file
 
 	1.	create_amalgams_job_array.sh --> runs create_amalgams_job_array.py 
@@ -46,7 +47,7 @@ High-Level Overview of The TopGuNN Pipeline
 
 		Expected output files:
 
-			(for our case, we ran 960 jobs in parallel)
+			(We ran 960 jobs in parallel)
 			- sentences_job#_filename.pkl (total 960)
 			- trace_job#_filename.pkl (total 960)
 			- spacy_toks_job#_filename.pkl (total 960)
@@ -62,7 +63,7 @@ High-Level Overview of The TopGuNN Pipeline
 
 		Expected output files:
 
-			(for our case, the 960 files for each are combined into 1 for each)
+			(The 960 files for each are combined into 1 for each)
 			- sentences.db (960 jobs into 1 sentence index)
 			- trace.db (960 jobs into 1 trace information index)
 			- spacy_toks.db (960 jobs into 1 spacy toks index)
@@ -73,20 +74,20 @@ High-Level Overview of The TopGuNN Pipeline
 
 	3. create_sqlite_indexes.sh --> runs create_sqlite_indexes.py
 
-	   creates indexes to precompute the range of the partition of the amalgamated sqlite dictionary being processed for a particular job in embed_and_filter_job_array.py in the next script.
+	   creates indexes to precompute the range of the partition of the amalgamated sqlite dictionary being processed for a particular job in embed_and_filter_job_array.py.
 
 	   Expected output files:
 	   		- None.  This is modifying the current amalgamated sqlite dictionaries, so that job paritions are uploaded faster and embed_and_filtering_job_array.py can process more rapidly for each job.
 	   		- create_sqlite_indexes.stdout 
 
-	   	Now you are ready to transfer all the files from Step 2) over to AWS for embedding and filtering! (along with gpu_requirements.txt and cpu_requirements.txt)
+	   	Now you are ready to transfer all the files from Step 2) over to AWS for embedding and filtering!
 
 
 ## Parallelized jobs on the GPU 
 
 	4.	embed_and_filter_job_launcher.py 
 
-		NOTE: Ensure you activate your GPU environment now
+		TODO: Activate your GPU environment now
 		Embeddings for both the query matrix and the database matrix are generated here.
 		Files of the filtered words extracted in each of the jobs are outputted to files.
 		
@@ -113,13 +114,13 @@ High-Level Overview of The TopGuNN Pipeline
 
 ## Post-processing on the CPU 
 
-	NOTE: Ensure you re-activate your CPU environment now
-	(5a. and 5b. you can and should run simultaneously)
+	TODO: Activate your CPU environment now
+	(5a. and 5b. run scripts simultaneously)
 
 	5a.	create_word_index.sh --> runs create_word_index.py
 
-		creates an amalgamated word_index and from each of the jobs that were ran in embed_and_filter_job_launcher.py in Step 4.	
-		after the file is done, you should have one amalgamated word_index
+		Creates an amalgamated word_index and from each of the jobs that were ran in embed_and_filter_job_launcher.py in Step 4.	
+		After the file is done, you should have one amalgamated word_index
 
 		Expected output files:
 
@@ -138,21 +139,16 @@ High-Level Overview of The TopGuNN Pipeline
 
 	6.	synchronized_word_sim_search.sh --> runs synchronized_word_sim_search.py
 
-		This handles a single query matrix or if you have several query matrices you want to run TopGuNN over
+		This supports a single query matrix or several query matrices
 		If you have multiple query matrices you can indicate this with --MULTI_QUERY flag on command line.
 		You must have json files of trigger words for each query matrix.
-		Ex.
-		Acquit.json ##[["change"], ["demoted"]]
-		Sentence.json ## [["sentence"], ["sentenced"], ["sentenced"]]
-		Demotion.json ## [["change"], ["demoted"]]
-
-		Using the query matrix that was generated in embed_and_filter_job_launcher.py, each content word is queried for and synchronized searched over all the annoy indexes.
+			Ex.
+			Acquit.json ##[["change"], ["demoted"]]
+			Sentence.json ## [["sentence"], ["sentenced"], ["sentenced"]]
+			Demotion.json ## [["change"], ["demoted"]]
 
 		Expected output files:
 
 		- synchronized_word_sim_search_results.csv     //results in csv format of the retrieved sentences
 		- synchronized_word_sim_search.stdout    //results in .txt format of the results
 
-
-# Installing Dependencies...
-We have provided a cpu_requirements.txt and gpu_requirements.txt in the source folder for quick install of those dependencies
