@@ -11,7 +11,13 @@ Aproximate Nearest Neighbors hasn't seen this speed since Maverick was in a 4 "G
 
 ### Introduction
 
-Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through vectors spanning 1000 months over 12-years, 8 different news agencies, and 50GBs of the gigaword corpus (between 10G - 1T vectors). 
+Our package, Top GuNN Similarity Search, provides python-based software to automatically query and search through approximately 5TB of vectors spanning 1000 months or articles, spanning 12-years, from 8 different news agencies, and 50GBs of the gigaword corpus. 
+
+I have provided data for 3 months of Gigaword, so you can betatest the scripts (Go through the README.md).
+I have provided all of the stdouts of the results of running each file to compare against.
+I have provided a detailed README.md and additionally a file called `betatest_expected_output.pages` with computation times and file sizes of each step.
+Once you can successfully replicate my results on the 3 month betatest, you are ready to implement this on your own corpus!
+
 
 ### Running The Program
 
