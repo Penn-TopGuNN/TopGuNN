@@ -1,6 +1,6 @@
 import argparse
 from os import listdir, walk
-from os.path import isfile, join
+from os.path import isfile, isdir, join
 import gzip
 import nltk
 import util
@@ -27,11 +27,7 @@ args = parser.parse_args()
 
 ## Reads in a sample gigaword file (non-annotated)
 def main(gigaword_fname):
-    '''Reads in a sample gigaword file (non-annotated, 1 month of NYT)
-    Args:
-    Returns:
-    Note:
-    '''
+
     global args, sentences, trace
     counter = 0
     sentences, trace = [], []
@@ -100,10 +96,12 @@ def job_handler():
     ## LDC CORPORA
     ## /nlp/data/corpora/LDC/LDC2011T07/data/
     ## sorted([join(rootdir+'/',fname) for (rootdir,subdir,fnames) in list(walk(dataDir))[1:] for fname in fnames])
-    fnames = sorted([join(args.dataDir,subdir,fname) for subdir in listdir(args.dataDir) for fname in listdir(args.dataDir+subdir)]) 
+    fnames = sorted([join(args.dataDir,subdir,fname) for subdir in listdir(args.dataDir) if isdir(args.dataDir+subdir) for fname in listdir(args.dataDir+subdir)]) 
     print('\nnfiles: ', len(fnames))
     print('\nfnames: ')
     print(fnames)
+
+    
 
     gigaword_fname = fnames[int(args.job_id)-1]
     print('\ncurrent file being processed: {}'.format(gigaword_fname[-17:]))
