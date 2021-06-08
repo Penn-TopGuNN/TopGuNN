@@ -35,7 +35,7 @@ NOTE: All computation times reported reflect running the scripts on our Penn NLP
 # Order of Script Execution 
 ## Pre-processing on the CPU 
 
-	TODO: Update your shell scripts below with you virtenv and your outDir/dataDir
+	TODO: Update your shell scripts below with your virtenv and your outDir/dataDir
 	TODO: Activate your CPU environment now
 	NOTE: .db==sqlite_dict		.dat==npy_memmap		.pkl==pickle_file
 
